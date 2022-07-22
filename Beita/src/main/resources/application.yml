@@ -5,3 +5,13 @@ ymltest:
     2: BBB
     3: CCC
 
+third:
+  anfang:
+    appKey: a781120848074fbc8609673d73c843d0
+    baseUrl: http://36.138.107.136:10000
+  hejiaqin:
+    baseUrl: http://localhost
+  qinghai:
+    url: 123adasd
+    appId: 0192801a
+    appSecret: oaiusdoiuq

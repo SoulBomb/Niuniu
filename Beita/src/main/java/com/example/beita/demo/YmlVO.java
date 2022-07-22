@@ -13,5 +13,5 @@ import java.util.Map;
 @Slf4j
 public class YmlVO {
     private String todo;
-    private Map<Integer, String> host;
+    private Map<String, String> host;
 }
