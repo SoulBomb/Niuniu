@@ -12,6 +12,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping
@@ -74,7 +77,7 @@ public class control {
     }
 
     @GetMapping("qq")
-    public String ll() throws Exception{
+    public String ll() throws Exception {
         OkHttpClient okHttpClient = new OkHttpClient();
 //        JSONObject body = new JSONObject();
 //        body.put("appId", "1551474023015591936");
@@ -121,5 +124,25 @@ public class control {
     @GetMapping("gets")
     public List<Instance> get(@RequestParam String serviceName) throws NacosException {
         return namingService.getAllInstances(serviceName);
+    }
+
+    @Autowired
+    private Map<String, Tt> tt = new HashMap<>();
+
+    @Autowired
+    private SpringContextUtil springContextUtil;
+
+    @GetMapping("aa")
+
+    public String aa() {
+        ApplicationContext applicationContext = springContextUtil.getApplicationContext();
+        Ad ad = (Ad) applicationContext.getBean("ad");
+        System.out.println(ad.hashCode());
+        tt.forEach((k, v) -> {
+            if (v instanceof Ad){
+                System.out.println(v.hashCode());
+            }
+        });
+        return "success";
     }
 }
